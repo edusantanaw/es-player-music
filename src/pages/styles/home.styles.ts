@@ -6,4 +6,9 @@ export const HomeContainer = styled.section`
     padding: 1em 3em;
     background-color: #0D051B;
     color: #fff;
+
+    .songs{
+        display: flex;
+        gap: 2em;
+    }
 `

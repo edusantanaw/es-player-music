@@ -14,6 +14,7 @@ export const CategoryContainer = styled.div`
             gap: 0.6em;
             border-radius: 10px;
             height: 11.7em;
+            cursor: pointer;
             img{
                 width: 7.8em;
                 height: 7.8em;

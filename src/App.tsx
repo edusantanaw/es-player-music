@@ -11,7 +11,7 @@ function App() {
       <Menu />
       <Home />
       {/* <audio controls autoPlay={true}>
-        <source src={joji} type="audio/mp3" />
+        <source src={joji} song />
       </audio> */}
     </Container>
   );
