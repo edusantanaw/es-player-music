@@ -10,7 +10,10 @@ export const SongContainer = styled.div`
     height: 13em;
     object-fit: cover;
   }
-  .audio{
+  .audio {
     width: 50%;
+    audio {
+      display: none;
+    }
   }
 `;
