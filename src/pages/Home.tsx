@@ -6,10 +6,10 @@ import { songsList } from "../utils/songsList";
 export const Home = () => {
   return (
     <HomeContainer>
-      <Category />
-      <div className="songs">
-        <SongsList />
+      <div className="left">
+        <Category />
       </div>
+      <SongsList />
     </HomeContainer>
   );
 };

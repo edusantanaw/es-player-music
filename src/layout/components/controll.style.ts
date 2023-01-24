@@ -21,8 +21,8 @@ export const ControllsContainer = styled.div`
     gap: 0.3em;
     align-items: center;
     svg {
-        font-size: 2.5em;
-        padding: 0.2em;
+      font-size: 2.5em;
+      padding: 0.2em;
       border: 1px solid #fff;
       cursor: pointer;
       border-radius: 50%;

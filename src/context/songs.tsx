@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import { songContext, songs } from "../types/global";
+import { categorylist } from "../utils/categoryList";
 import { songsList } from "../utils/songsList";
 
 export const SongContext = createContext({} as songContext);
@@ -10,6 +11,14 @@ interface providerProps {
 
 export const SongProvider = ({ children }: providerProps) => {
   const [currentSong, setCurrentSong] = useState<songs>(songsList[0]);
+
+  const [currentCategory, setCurrentCategory] = useState<string>(
+    categorylist[0].name
+  );
+
+  const handleCategory = (category: string) => {
+    setCurrentCategory(category);
+  };
 
   const handleCurrentSong = (songs: songs) => {
     setCurrentSong(songs);
@@ -29,7 +38,14 @@ export const SongProvider = ({ children }: providerProps) => {
 
   return (
     <SongContext.Provider
-      value={{ currentSong, handleCurrentSong, handleNext, handlePrev }}
+      value={{
+        currentSong,
+        handleCurrentSong,
+        handleNext,
+        handlePrev,
+        currentCategory,
+        handleCategory
+      }}
     >
       {children}
     </SongContext.Provider>

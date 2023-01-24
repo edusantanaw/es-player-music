@@ -3,11 +3,16 @@ import { songsList } from "../utils/songsList";
 import { Songs } from "./styles/songsList.style";
 
 const SongsList = () => {
-  const { handleCurrentSong } = useSong();
+  const { handleCurrentSong, currentSong } = useSong();
   return (
     <Songs>
+      <h2>Sugestões</h2>
       {songsList.map((songs, key) => (
-        <li key={key} onClick={() => handleCurrentSong(songs)}>
+        <li
+          id={currentSong.id === songs.id ? "current" : ""}
+          key={key}
+          onClick={() => handleCurrentSong(songs)}
+        >
           <img src={songs.image} alt={songs.name} />
           <div>
             <p>{songs.name}</p>

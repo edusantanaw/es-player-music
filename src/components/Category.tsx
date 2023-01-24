@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import { useSong } from "../hooks/useSong";
 import { categorylist } from "../utils/categoryList";
 import { CategoryContainer } from "./styles/category.styles";
 
 const Category = () => {
-  const [currentCategory, setCurrentCategory] = useState<string>(
-    categorylist[0].name
-  );
-  const handleCategory = (category: string) => {
-    setCurrentCategory(category);
-  };
+  const { currentCategory, handleCategory } = useSong();
 
   return (
     <CategoryContainer>
