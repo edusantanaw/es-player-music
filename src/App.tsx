@@ -1,5 +1,3 @@
-import React from "react";
-import joji from "./assets/songs/glimpse.mp3";
 import Menu from "./layout/Menu";
 import Song from "./layout/Song";
 import { Home } from "./pages/Home";

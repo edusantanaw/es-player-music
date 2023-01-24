@@ -1,4 +1,3 @@
-import React from "react";
 import { albumList } from "../utils/albumList";
 import { AlbumlistContainer } from "./styles/albumlist.style";
 
@@ -10,7 +9,6 @@ const Albums = () => {
       </div>
       <ul>
         {albumList.map((album, key) => {
-          console.log(key);
           if (key > 3) return;
           return (
             <li key={key}>
