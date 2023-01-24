@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { songContext, songs } from "../types/global";
+import { makeSongsStorage } from "../utils/likes";
 import { songsList } from "../utils/songsList";
 
 export const SongContext = createContext({} as songContext);
@@ -44,15 +45,6 @@ export const SongProvider = ({ children }: providerProps) => {
     if (findIndex > 0) {
       setCurrentSong(currentLista.songs[findIndex - 1]);
     }
-  };
-
-  const makeSongsStorage = () => {
-    let songs = localStorage.getItem("@App:like");
-    if (songs) {
-      const parseSongs = JSON.parse(songs) as string[];
-      return parseSongs;
-    }
-    return null;
   };
 
   const addLike = (id: string) => {

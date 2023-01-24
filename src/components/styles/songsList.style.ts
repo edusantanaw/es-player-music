@@ -6,7 +6,7 @@ export const Songs = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8em;
-  h2{
+  h2 {
     font-size: 2em;
     font-weight: 500;
   }
@@ -18,7 +18,7 @@ export const Songs = styled.ul`
     padding: 0.7em;
     cursor: pointer;
     border-radius: 10px;
-    .infos{
+    .infos {
       display: flex;
       gap: 2em;
     }
@@ -29,19 +29,22 @@ export const Songs = styled.ul`
       border-radius: 10px;
     }
 
-    p{
+    p {
       letter-spacing: 1px;
       font-size: 1.1em;
     }
     span {
       font-size: 0.9em;
       color: #c2c2c2;
-      letter-spacing: 1.2px
+      letter-spacing: 1.2px;
     }
     &:hover {
       opacity: 0.9;
       background-color: #0003;
     }
+  }
+  #liked {
+    color: red;
   }
   #current {
     background-color: #dd3203;
