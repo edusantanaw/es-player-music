@@ -1,18 +1,13 @@
-import React from "react";
-import { songs } from "../types/global";
+import { useSong } from "../hooks/useSong";
+import { songsList } from "../utils/songsList";
 import { Songs } from "./styles/songsList.style";
 
-interface props {
-  songsList: songs[];
-  handleCurrent: (song: songs) => void;
-  current: string;
-}
-
-const SongsList = ({ songsList, handleCurrent }: props) => {
+const SongsList = () => {
+  const { handleCurrentSong } = useSong();
   return (
     <Songs>
       {songsList.map((songs, key) => (
-        <li key={key} onClick={() => handleCurrent(songs)}>
+        <li key={key} onClick={() => handleCurrentSong(songs)}>
           <img src={songs.image} alt={songs.name} />
           <div>
             <p>{songs.name}</p>
