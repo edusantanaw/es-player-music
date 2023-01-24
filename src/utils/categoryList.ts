@@ -6,10 +6,10 @@ import classic from "../assets/category/classics.jpg";
 import anos80 from "../assets/category/japanese.jpg";
 
 export const categorylist = [
-    {
-      name: "Todos",
-      image: music,
-    },
+  {
+    name: "Todos",
+    image: music,
+  },
   {
     name: "Rock",
     image: rock,
@@ -29,5 +29,5 @@ export const categorylist = [
   {
     name: "Anos 80",
     image: anos80,
-  }
+  },
 ];

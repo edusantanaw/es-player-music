@@ -1,6 +1,12 @@
-import { createContext, ReactNode, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { songContext, songs } from "../types/global";
-import { categorylist } from "../utils/categoryList";
+import { filters } from "../utils/filters";
 import { songsList } from "../utils/songsList";
 
 export const SongContext = createContext({} as songContext);
@@ -10,11 +16,17 @@ interface providerProps {
 }
 
 export const SongProvider = ({ children }: providerProps) => {
-  const [currentSong, setCurrentSong] = useState<songs>(songsList[0]);
-
-  const [currentCategory, setCurrentCategory] = useState<string>(
-    categorylist[0].name
-  );
+  const [currentLista, setCurrentLista] = useState<{
+    name: string;
+    songs: songs[];
+  }>({ name: "Rodos", songs: songsList });
+  const [currentSong, setCurrentSong] = useState<songs>(currentLista.songs[0]);
+  const [currentCategory, setCurrentCategory] = useState<string>("Todos");
+  useEffect(() => {
+    const list = filters[currentCategory];
+    console.log(list)
+    setCurrentLista({ name: currentCategory, songs: list });
+  }, [currentCategory]);
 
   const handleCategory = (category: string) => {
     setCurrentCategory(category);
@@ -40,11 +52,12 @@ export const SongProvider = ({ children }: providerProps) => {
     <SongContext.Provider
       value={{
         currentSong,
-        handleCurrentSong,
         handleNext,
         handlePrev,
         currentCategory,
-        handleCategory
+        handleCategory,
+        handleCurrentSong,
+        currentLista,
       }}
     >
       {children}

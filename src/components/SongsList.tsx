@@ -1,13 +1,12 @@
 import { useSong } from "../hooks/useSong";
-import { songsList } from "../utils/songsList";
 import { Songs } from "./styles/songsList.style";
 
 const SongsList = () => {
-  const { handleCurrentSong, currentSong } = useSong();
+  const { handleCurrentSong, currentSong, currentLista } = useSong();
   return (
     <Songs>
-      <h2>Sugestões</h2>
-      {songsList.map((songs, key) => (
+      <h2>{currentLista.name}</h2>
+      {currentLista.songs.map((songs, key) => (
         <li
           id={currentSong.id === songs.id ? "current" : ""}
           key={key}

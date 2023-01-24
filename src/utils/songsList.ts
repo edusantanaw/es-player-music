@@ -38,5 +38,4 @@ export const songsList: songs[] = [
     autor: "Metalica",
     category: "Rock",
   },
-
 ];

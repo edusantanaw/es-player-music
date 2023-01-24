@@ -10,6 +10,7 @@ export type songs = {
 export type songContext = {
   currentSong: songs;
   currentCategory: string;
+  currentLista: {name: string, songs: songs[]},
   handleCurrentSong: (song: songs) => void;
   handleCategory: (category: string) => void;
   handleNext: (index: number) => void;

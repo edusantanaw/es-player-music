@@ -3,7 +3,7 @@ import { VscDebugStart } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
 import { useSong } from "../../hooks/useSong";
 import { ControllsContainer } from "./controll.style";
-import { MdOutlineSkipNext , MdOutlineSkipPrevious} from "react-icons/md";
+import { MdOutlineSkipNext, MdOutlineSkipPrevious } from "react-icons/md";
 
 export const Controlls = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
