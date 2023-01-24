@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CategoryContainer = styled.div`
     width: 100%;
     ul{
-        padding-top: 2em;
+        padding-top: 1em;
         display: flex;
         gap: 2em;
         li{
@@ -12,12 +12,12 @@ export const CategoryContainer = styled.div`
             align-items: center;
             padding: 0.6em;
             gap: 0.6em;
-            border-radius: 10px;
-            height: 11.7em;
+            border-radius: 15px;
+            height: 10.5em;
             cursor: pointer;
             img{
-                width: 7.8em;
-                height: 7.8em;
+                width: 6.5em;
+                height: 6.5em;
                 object-fit: cover;
                 border-radius: 15px;
             }
