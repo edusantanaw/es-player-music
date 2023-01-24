@@ -2,22 +2,21 @@ import styled from "styled-components";
 
 export const SongContainer = styled.div`
   display: flex;
-  padding: 1.5em 3em;
+  padding: 0.5em 3em;
   width: 100%;
   align-items: center;
-  height: 5em;
   position: fixed;
   bottom: 0px;
   z-index: 10;
   gap: 0.6em;
-  border-radius: 15px 15px 0px 0px;
-  background-color: #dd3203;
+  border-radius: 30px 30px 0px 0px;
+  background-color: #000;
   color: #fff;
   img {
     width: 3.5em;
     height: 3.5em;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   .content {
@@ -25,5 +24,10 @@ export const SongContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 2em;
+
+    h2 {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
   }
 `;
