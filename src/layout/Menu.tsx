@@ -1,10 +1,15 @@
-import React from 'react'
-import { MenuContainer } from './menu.syles'
+import React from "react";
+import { MenuContainer } from "./menu.syles";
 
 const Menu = () => {
   return (
-    <MenuContainer>Menu</MenuContainer>
-  )
-}
+    <MenuContainer>
+      <span>Menu</span>
+      <ul>
+        <li>Home</li>
+      </ul>
+    </MenuContainer>
+  );
+};
 
-export default Menu
+export default Menu;

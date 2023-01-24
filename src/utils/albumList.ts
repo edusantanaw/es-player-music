@@ -14,4 +14,22 @@ export const albumList = [
     autor: "joji",
     image: nectarImage,
   },
+  {
+    id: v4(),
+    name: "Nectar",
+    autor: "joji",
+    image: nectarImage,
+  },
+  {
+    id: v4(),
+    name: "Nectar",
+    autor: "joji",
+    image: nectarImage,
+  },
+  {
+    id: v4(),
+    name: "Nectar",
+    autor: "joji",
+    image: nectarImage,
+  },
 ];

@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { songContext, songs } from "../types/global";
-import { filters } from "../utils/filters";
 import { songsList } from "../utils/songsList";
 
 export const SongContext = createContext({} as songContext);
@@ -18,8 +17,10 @@ export const SongProvider = ({ children }: providerProps) => {
   const [currentCategory, setCurrentCategory] = useState<string>("Todos");
 
   useEffect(() => {
-    const list = filters[currentCategory];
-    console.log(list);
+    const list = songsList.filter((song) => {
+      if(currentCategory === "Todos") return song
+      return song.category === currentCategory
+    });
     setCurrentLista({ name: currentCategory, songs: list });
   }, [currentCategory]);
 
