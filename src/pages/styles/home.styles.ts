@@ -6,9 +6,11 @@ export const HomeContainer = styled.section`
   padding: 1em 3em;
   background-color: #0d051b;
   color: #fff;
-  display: flex;
   gap: 1em;
-  .left{
-    width: 50%;
+
+  .bottom{
+    display: flex;
+    gap: 2em;
   }
+  
 `;

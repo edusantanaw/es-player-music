@@ -1,15 +1,16 @@
 import Category from "../components/Category";
 import SongsList from "../components/SongsList";
 import { HomeContainer } from "./styles/home.styles";
-import { songsList } from "../utils/songsList";
+import Albums from "../components/AmbumList";
 
 export const Home = () => {
   return (
     <HomeContainer>
-      <div className="left">
-        <Category />
+      <Category />
+      <div className="bottom">
+        <SongsList />
+        <Albums />
       </div>
-      <SongsList />
     </HomeContainer>
   );
 };

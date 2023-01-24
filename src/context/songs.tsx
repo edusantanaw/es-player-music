@@ -2,7 +2,6 @@ import {
   createContext,
   ReactNode,
   useEffect,
-  useLayoutEffect,
   useState,
 } from "react";
 import { songContext, songs } from "../types/global";
@@ -22,6 +21,8 @@ export const SongProvider = ({ children }: providerProps) => {
   }>({ name: "Rodos", songs: songsList });
   const [currentSong, setCurrentSong] = useState<songs>(currentLista.songs[0]);
   const [currentCategory, setCurrentCategory] = useState<string>("Todos");
+
+  
   useEffect(() => {
     const list = filters[currentCategory];
     console.log(list)
