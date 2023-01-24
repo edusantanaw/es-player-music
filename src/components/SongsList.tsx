@@ -1,8 +1,10 @@
 import { useSong } from "../hooks/useSong";
 import { Songs } from "./styles/songsList.style";
+import { FiHeart } from "react-icons/fi";
 
 const SongsList = () => {
-  const { handleCurrentSong, currentSong, currentLista } = useSong();
+  const { handleCurrentSong, currentSong, currentLista, handleLike } =
+    useSong();
   return (
     <Songs>
       <h2>{currentLista.name}</h2>
@@ -12,11 +14,14 @@ const SongsList = () => {
           key={key}
           onClick={() => handleCurrentSong(songs)}
         >
-          <img src={songs.image} alt={songs.name} />
-          <div>
-            <p>{songs.name}</p>
-            <span>{songs.autor}</span>
+          <div className="infos">
+            <img src={songs.image} alt={songs.name} />
+            <div>
+              <p>{songs.name}</p>
+              <span>{songs.autor}</span>
+            </div>
           </div>
+          <FiHeart onClick={() => handleLike(songs.id)} />
         </li>
       ))}
     </Songs>

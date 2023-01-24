@@ -32,14 +32,14 @@ export const SongProvider = ({ children }: providerProps) => {
     setCurrentSong(songs);
   };
 
-  const handleNext = (id: number) => {
+  const handleNext = (id: string) => {
     const findIndex = currentLista.songs.findIndex((song) => song.id === id);
     if (findIndex < songsList.length - 1) {
       setCurrentSong(currentLista.songs[findIndex + 1]);
     }
   };
 
-  const handlePrev = (id: number) => {
+  const handlePrev = (id: string) => {
     const findIndex = currentLista.songs.findIndex((song) => song.id === id);
     if (findIndex > 0) {
       setCurrentSong(currentLista.songs[findIndex - 1]);
@@ -47,19 +47,23 @@ export const SongProvider = ({ children }: providerProps) => {
   };
 
   const makeSongsStorage = () => {
-    const songs: string[] = JSON.parse(localStorage.getItem("@App:like") || "");
-    return songs;
+    let songs = localStorage.getItem("@App:like");
+    if (songs) {
+      const parseSongs = JSON.parse(songs) as string[];
+      return parseSongs;
+    }
+    return null;
   };
 
   const addLike = (id: string) => {
-    const songs = makeSongsStorage();
+    const songs = makeSongsStorage() || [];
     const updatedSongs = [...songs, id];
     localStorage.setItem("@App:like", JSON.stringify(updatedSongs));
     return;
   };
 
   const removeLike = (id: string) => {
-    const songs = makeSongsStorage();
+    const songs = makeSongsStorage() || [];
     const index = songs.indexOf(id);
     const updatedSongs = songs.slice(index, 1);
     localStorage.setItem("@App:like", JSON.stringify(updatedSongs));
@@ -68,10 +72,9 @@ export const SongProvider = ({ children }: providerProps) => {
 
   const handleLike = (id: string) => {
     const songsLikes = makeSongsStorage();
-    if (!songsLikes) addLike(id);
-    const verifyLikeExists = songsLikes.filter(
-      (songId: string) => songId === id
-    );
+    if (songsLikes) addLike(id);
+    const verifyLikeExists =
+      songsLikes && songsLikes.filter((songId: string) => songId === id);
     verifyLikeExists ? removeLike(id) : addLike(id);
   };
 
@@ -85,6 +88,7 @@ export const SongProvider = ({ children }: providerProps) => {
         handleCategory,
         handleCurrentSong,
         currentLista,
+        handleLike,
       }}
     >
       {children}

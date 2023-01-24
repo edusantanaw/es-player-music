@@ -14,10 +14,14 @@ export const Songs = styled.ul`
   li {
     display: flex;
     align-items: center;
-    gap: 2em;
+    justify-content: space-between;
     padding: 0.7em;
     cursor: pointer;
     border-radius: 10px;
+    .infos{
+      display: flex;
+      gap: 2em;
+    }
     img {
       width: 3.5em;
       height: 3.6em;

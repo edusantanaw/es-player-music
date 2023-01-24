@@ -4,10 +4,11 @@ import puppets from "../assets/songs/puppets.mp3";
 import glimpseImage from "../assets/songs/images/glimpse.jpg";
 import puppetsImage from "../assets/songs/images/puppets.jpg";
 import { songs } from "../types/global";
+import { v4 } from "uuid";
 
 export const songsList: songs[] = [
   {
-    id: 0,
+    id: v4(),
     name: "Glimpse of us",
     image: glimpseImage,
     source: glimpse,
@@ -15,7 +16,7 @@ export const songsList: songs[] = [
     category: "Indie",
   },
   {
-    id: 1,
+    id: v4(),
     name: "Master of puppets",
     image: puppetsImage,
     source: puppets,
@@ -23,7 +24,7 @@ export const songsList: songs[] = [
     category: "Rock",
   },
   {
-    id: 2,
+    id: v4(),
     name: "Glimpse of us",
     image: glimpseImage,
     source: glimpse,
@@ -31,7 +32,7 @@ export const songsList: songs[] = [
     category: "Indie",
   },
   {
-    id: 3,
+    id: v4(),
     name: "Master of puppets",
     image: puppetsImage,
     source: puppets,
