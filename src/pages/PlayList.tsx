@@ -6,12 +6,15 @@ import { BsFillSuitHeartFill } from "react-icons/bs";
 import SongsList from "../components/SongsList";
 import { useSong } from "../hooks/useSong";
 import { loadLikeSongs } from "../utils/likeList";
+import { useState } from "react";
 
 const PlayList = () => {
   const { playLists } = usePlayList();
+  const [newPlayList, setNewPlayList] = useState(false);
 
   const { currentLista } = useSong();
-  console.log(loadLikeSongs())
+  const likePlaylist = loadLikeSongs();
+
   return (
     <PlayListContainer>
       <div className="head">
@@ -27,7 +30,16 @@ const PlayList = () => {
         {playLists &&
           playLists.map((playList, key) => <li key={key}>{playList.name}</li>)}
       </ul>
-      <SongsList list={currentLista} />
+      <SongsList
+        list={
+          likePlaylist
+            ? {
+                name: "like",
+                songs: likePlaylist,
+              }
+            : currentLista
+        }
+      />
     </PlayListContainer>
   );
 };
