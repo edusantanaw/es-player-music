@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const AlbumlistContainer = styled.div`
   padding-top: 1em;
   width: 50%;
-  h2 {
-    font-size: 2em;
-    font-weight: 500;
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    A{
+      color: blueviolet;
+    }
   }
 
   ul {
@@ -34,7 +39,7 @@ export const AlbumlistContainer = styled.div`
         padding: 0.5em;
         font-size: 1.2em;
         font-weight: 400;
-    }
+      }
     }
   }
 `;

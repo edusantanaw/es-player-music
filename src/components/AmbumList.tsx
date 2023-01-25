@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
+import { Title } from "../styles/global";
 import { albumList } from "../utils/albumList";
 import { AlbumlistContainer } from "./styles/albumlist.style";
 
 const Albums = () => {
   return (
     <AlbumlistContainer>
-      <div>
-        <h2>Albums</h2>
+      <div className="head">
+        <Title>Albums</Title>
+        <Link to="albums">Veja todos</Link>
       </div>
       <ul>
         {albumList.map((album, key) => {

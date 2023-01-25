@@ -1,11 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { IPlatList, IPlayListContext } from "../types/global";
 
-const PlayListContext = createContext({} as any);
-
-type IPlatList = {
-  id: number;
-  name: string;
-};
+export const PlayListContext = createContext({} as IPlayListContext);
 
 export const PlayListProvider = ({ children }: { children: ReactNode }) => {
   const [playLists, setPlayList] = useState<IPlatList[] | null>(null);

@@ -57,8 +57,9 @@ export const SongProvider = ({ children }: providerProps) => {
   const removeLike = (id: string) => {
     const songs = makeSongsStorage() || [];
     const index = songs.indexOf(id);
-    const updatedSongs = songs.slice(index, 1);
-    localStorage.setItem("@App:like", JSON.stringify(updatedSongs));
+    console.log(index);
+    songs.splice(index, 1);
+    localStorage.setItem("@App:like", JSON.stringify(songs));
     return;
   };
 
@@ -67,7 +68,9 @@ export const SongProvider = ({ children }: providerProps) => {
     if (songsLikes) addLike(id);
     const verifyLikeExists =
       songsLikes && songsLikes.filter((songId: string) => songId === id);
-    verifyLikeExists ? removeLike(id) : addLike(id);
+    verifyLikeExists && verifyLikeExists.length > 0
+      ? removeLike(id)
+      : addLike(id);
   };
 
   return (

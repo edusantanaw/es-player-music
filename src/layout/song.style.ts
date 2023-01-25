@@ -10,7 +10,7 @@ export const SongContainer = styled.div`
   z-index: 10;
   gap: 0.6em;
   border-radius: 30px 30px 0px 0px;
-  background-color: #000;
+  background-color: #040114;
   color: #fff;
   img {
     width: 3.5em;

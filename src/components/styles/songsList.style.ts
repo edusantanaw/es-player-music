@@ -6,10 +6,6 @@ export const Songs = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8em;
-  h2 {
-    font-size: 2em;
-    font-weight: 500;
-  }
 
   li {
     display: flex;
@@ -47,6 +43,6 @@ export const Songs = styled.ul`
     color: red;
   }
   #current {
-    background-color: #dd3203;
+    background-color: #120d31
   }
 `;

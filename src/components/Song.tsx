@@ -6,20 +6,19 @@ import { makeSongsStorage } from "../utils/likes";
 
 const Song = ({ song }: { song: songs }) => {
   const { handleCurrentSong, currentSong, handleLike } = useSong();
-  const [likes, setLikes] = useState<string[] | null>(null);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     const songLikes = makeSongsStorage();
     if (songLikes) {
-      setLikes(songLikes);
+      const find = songLikes.filter((songId) => songId === song.name);
+      if (find.length > 0) setLiked(true);
     }
   }, []);
 
-  const verifyliked = (id: string) => {
-    if (!likes) return;
-    const find = likes.filter((songId) => songId === id);
-    if (find.length > 0) return true;
-    return false
+  const updateLike = (name: string) => {
+    liked ? setLiked(false) : setLiked(true);
+    handleLike(song.name);
   };
 
   return (
@@ -35,8 +34,8 @@ const Song = ({ song }: { song: songs }) => {
         </div>
       </div>
       <FiHeart
-        id={verifyliked(song.name) ? "liked" : ""}
-        onClick={() => handleLike(song.name)}
+        id={liked ? "liked" : ""}
+        onClick={() => updateLike(song.name)}
       />
     </li>
   );

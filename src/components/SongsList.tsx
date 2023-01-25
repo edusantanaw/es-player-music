@@ -1,15 +1,17 @@
-import { useSong } from "../hooks/useSong";
 import { Songs } from "./styles/songsList.style";
 
 import Song from "./Song";
+import { Title } from "../styles/global";
+import { songs } from "../types/global";
 
-const SongsList = () => {
-  const { currentLista } = useSong();
-
+interface props {
+  list: {name: string, songs: songs[];}
+}
+const SongsList = ({ list }: props) => {
   return (
     <Songs>
-      <h2>{currentLista.name}</h2>
-      {currentLista.songs.map((songs, key) => (
+      <Title>{list.name}</Title>
+      {list.songs.map((songs, key) => (
         <Song song={songs} key={key} />
       ))}
     </Songs>

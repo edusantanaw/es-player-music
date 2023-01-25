@@ -61,7 +61,6 @@ export const Controlls = () => {
         onChange={countTime}
         onTimeUpdate={countTime}
         ref={audioRef}
-        autoPlay
         controls
         onEnded={() => handleNext(currentSong.id)}
       ></audio>

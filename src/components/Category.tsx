@@ -1,4 +1,5 @@
 import { useSong } from "../hooks/useSong";
+import { Title } from "../styles/global";
 import { categorylist } from "../utils/categoryList";
 import { CategoryContainer } from "./styles/category.styles";
 
@@ -7,7 +8,7 @@ const Category = () => {
 
   return (
     <CategoryContainer>
-      <h2>Categorias</h2>
+      <Title>Categorias</Title>
       <ul>
         {categorylist.map((category, key) => (
           <li

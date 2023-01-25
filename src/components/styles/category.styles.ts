@@ -2,10 +2,6 @@ import styled from "styled-components";
 
 export const CategoryContainer = styled.div`
   width: 100%;
-  h2 {
-    font-size: 2em;
-    font-weight: 500;
-  }
   ul {
     padding-top: 1em;
     display: flex;
@@ -33,7 +29,7 @@ export const CategoryContainer = styled.div`
       }
     }
     #selected {
-      background-color: #dd3203;
+      background-color: #120d31;
     }
   }
 `;

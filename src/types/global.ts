@@ -17,3 +17,14 @@ export type songContext = {
   handlePrev: (id: string) => void;
   handleLike: (id: string) => void;
 };
+
+export type IPlatList = {
+  id: number;
+  name: string;
+};
+
+export interface IPlayListContext {
+  createPlayList: (name: string) => void;
+  playLists: IPlatList[] | null;
+  updatePlayList: (songId: string, playListId: number) => void;
+}
