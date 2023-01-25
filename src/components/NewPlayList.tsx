@@ -1,37 +1,12 @@
-import React, { useRef, useState } from "react";
-import { usePlayList } from "../hooks/usePlayList";
-import { songs } from "../types/global";
+import { useRef } from "react";
+import { useCreatePlayList } from "../hooks/useCreatePlaylist";
 import { songsList } from "../utils/songsList";
 
 const NewPlayList = () => {
-  const { createPlayList } = usePlayList();
   const nameRef = useRef<HTMLInputElement | null>(null);
-  const [selectedSong, setSelectedSong] = useState<songs[]>([]);
-
-  const handleCreatePlayList = () => {
-    if (!nameRef.current) return;
-    const name = nameRef.current.value;
-    createPlayList(name);
-  };
-
-  const removeSelectedSong = (song: songs) => {
-    const songIndex = selectedSong.indexOf(song);
-    const newSelectedSong = selectedSong.slice(songIndex, 1);
-    setSelectedSong(newSelectedSong);
-  };
-
-  const addSelectedSong = (song: songs) => {
-    setSelectedSong((songs) => [...songs, song]);
-  };
-
-  const handleSelectedSong = (song: songs) => {
-    const verifySongAlreadySelected = selectedSong.includes(song);
-    if (verifySongAlreadySelected) {
-      removeSelectedSong(song);
-      return;
-    }
-    addSelectedSong(song);
-  };
+  const { handleCreatePlayList, handleSelectedSong } = useCreatePlayList({
+    nameRef,
+  });
 
   return (
     <div>
