@@ -18,7 +18,7 @@ const Menu = () => {
         </li>
         <li>
           <Link to="/playlist">
-            <TbPlaylist /> <span>PlayLists</span>
+            <TbPlaylist /> <span>Playlists</span>
           </Link>
         </li>
         <li>

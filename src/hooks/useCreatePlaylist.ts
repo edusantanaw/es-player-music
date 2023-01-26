@@ -48,5 +48,6 @@ export const useCreatePlayList = ({ nameRef }: props) => {
   return {
     handleCreatePlayList,
     handleSelectedSong,
+    selectedSong
   };
 };

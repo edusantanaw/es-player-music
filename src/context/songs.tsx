@@ -57,7 +57,6 @@ export const SongProvider = ({ children }: providerProps) => {
   const removeLike = (id: string) => {
     const songs = makeSongsStorage() || [];
     const index = songs.indexOf(id);
-    console.log(index);
     songs.splice(index, 1);
     localStorage.setItem("@App:like", JSON.stringify(songs));
     return;
