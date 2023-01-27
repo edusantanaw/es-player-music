@@ -9,7 +9,6 @@ export const Controlls = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<string>("00:00");
-
   const { handleNext, handlePrev, currentSong } = useSong();
 
   const formatTime = (time: number) => {

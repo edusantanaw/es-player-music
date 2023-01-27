@@ -20,8 +20,9 @@ export const useCreatePlayList = ({ nameRef }: props) => {
 
   const removeSelectedSong = (song: songs) => {
     const songIndex = selectedSong.indexOf(song);
-    const newSelectedSong = selectedSong.slice(songIndex, 1);
-    setSelectedSong(newSelectedSong);
+    const currentSelectedSongs = selectedSong;
+    currentSelectedSongs.splice(songIndex, 1);
+    setSelectedSong((current) => [...currentSelectedSongs]);
   };
 
   const addSelectedSong = (song: songs) => {
@@ -48,6 +49,6 @@ export const useCreatePlayList = ({ nameRef }: props) => {
   return {
     handleCreatePlayList,
     handleSelectedSong,
-    selectedSong
+    selectedSong,
   };
 };

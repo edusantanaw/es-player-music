@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import { useCreatePlayList } from "../hooks/useCreatePlaylist";
+import { songs } from "../types/global";
 import { songsList } from "../utils/songsList";
+import SongNewPlaylist from "./SongNewPlaylist";
 import { NewPlaylistModal } from "./styles/newPlaylist.style";
 
 interface props {
@@ -9,9 +11,10 @@ interface props {
 
 const NewPlayList = ({ handleClose }: props) => {
   const nameRef = useRef<HTMLInputElement | null>(null);
-  const { handleCreatePlayList, handleSelectedSong } = useCreatePlayList({
-    nameRef,
-  });
+  const { handleCreatePlayList, handleSelectedSong, selectedSong } =
+    useCreatePlayList({
+      nameRef,
+    });
 
   return (
     <NewPlaylistModal>
@@ -23,13 +26,12 @@ const NewPlayList = ({ handleClose }: props) => {
         </div>
         <ul className="songs">
           {songsList.map((song, key) => (
-            <li key={key} onClick={() => handleSelectedSong(song)}>
-              <img src={song.image} alt={song.name} />
-              <div className="infos">
-                <h3>{song.name}</h3>
-                <span>{song.autor}</span>
-              </div>
-            </li>
+            <SongNewPlaylist
+              song={song}
+              key={key}
+              handleSelectedSong={handleSelectedSong}
+              selectedSong={selectedSong}
+            />
           ))}
         </ul>
       </form>

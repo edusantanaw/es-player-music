@@ -30,13 +30,13 @@ export const NewPlaylistModal = styled.div`
     }
 
     .name_input {
-        padding-bottom: 1em;
+      padding-bottom: 1em;
       label {
         display: block;
         font-size: 1.1em;
-    }
+      }
 
-      input{
+      input {
         margin-top: 0.4em;
         padding: 0.8em;
         border: none;
@@ -44,5 +44,37 @@ export const NewPlaylistModal = styled.div`
         border-radius: 5px;
       }
     }
+  }
+  .songs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    li {
+      width: 100%;
+      display: flex;
+      gap: 1em;
+      padding: 0.8em;
+      cursor: pointer;
+      border-radius: 6px;
+      img {
+        border-radius: 5px;
+      }
+      h3 {
+        font-size: 1em;
+        font-weight: 500;
+      }
+      span {
+        color: #c2c2c2;
+        font-size: 0.9em;
+        font-weight: 400;
+      }
+      &:hover {
+        background-color: #0005;
+      }
+    }
+  }
+
+  .selected {
+    background-color: #000;
   }
 `;
