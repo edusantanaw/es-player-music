@@ -16,6 +16,13 @@ const NewPlayList = ({ handleClose }: props) => {
       nameRef,
     });
 
+  const handleCreate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nameRef.current) return;
+    handleCreatePlayList();
+    handleClose();
+  };
+
   return (
     <NewPlaylistModal>
       <div className="close" onClick={handleClose} />
@@ -34,6 +41,9 @@ const NewPlayList = ({ handleClose }: props) => {
             />
           ))}
         </ul>
+        <button id="create_button" onClick={(e) => handleCreate(e)}>
+          Criar
+        </button>
       </form>
     </NewPlaylistModal>
   );

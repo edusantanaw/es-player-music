@@ -4,20 +4,35 @@ import { PlayListContainer } from "./styles/playlist.style";
 import { Title } from "../styles/global";
 import { BsFillSuitHeartFill } from "react-icons/bs";
 import SongsList from "../components/SongsList";
-import { useSong } from "../hooks/useSong";
 import { loadLikeSongs } from "../utils/likeList";
 import { useState } from "react";
 import NewPlayList from "../components/NewPlayList";
+import { songs } from "../types/global";
+
+const curtidas = {
+  name: "Curtidas",
+  songs: loadLikeSongs(),
+};
 
 const PlayList = () => {
-  const { playLists } = usePlayList();
+  const { playLists, loadPlayListSongs } = usePlayList();
   const [newPlayList, setNewPlayList] = useState(false);
-
-  const { currentLista } = useSong();
-  const likePlaylist = loadLikeSongs();
+  const [currentPlayList, setCurrentPlayList] = useState<{
+    name: string;
+    songs: songs[] | null;
+  }>(curtidas);
 
   const handleNewPlayList = () => {
     newPlayList ? setNewPlayList(false) : setNewPlayList(true);
+  };
+
+  const handlePlatlist = (name: string) => {
+    const songs = loadPlayListSongs(name);
+    console.log(songs)
+    setCurrentPlayList({
+      name: name,
+      songs: songs,
+    });
   };
 
   return (
@@ -35,20 +50,17 @@ const PlayList = () => {
             <BsFillSuitHeartFill /> <span>Curtidas</span>
           </li>
           {playLists &&
-            playLists.map((playList, key) => (
-              <li key={key}>{playList.name}</li>
+            playLists.map((playlist, key) => (
+              <li onClick={() => handlePlatlist(playlist.name)} key={key}>
+                {playlist.name}
+              </li>
             ))}
         </ul>
-        <SongsList
-          list={
-            likePlaylist
-              ? {
-                  name: "like",
-                  songs: likePlaylist,
-                }
-              : currentLista
-          }
-        />
+        {currentPlayList.songs && (
+          <SongsList
+            list={{ name: currentPlayList.name, songs: currentPlayList.songs }}
+          />
+        )}
       </PlayListContainer>
     </>
   );

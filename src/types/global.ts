@@ -16,6 +16,7 @@ export type songContext = {
   handleNext: (id: string) => void;
   handlePrev: (id: string) => void;
   handleLike: (id: string) => void;
+  handleUpdateCurrentList: (list: { name: string; songs: songs[] }) => void;
 };
 
 export type IPlatList = {
@@ -26,5 +27,6 @@ export type IPlatList = {
 export interface IPlayListContext {
   createPlayList: (name: string) => void;
   playLists: IPlatList[] | null;
-  updatePlayList: (songId: string, playListId: number) => void;
+  updatePlayList: (songId: string, name: string) => void;
+  loadPlayListSongs: (name: string) => songs[] | null;
 }

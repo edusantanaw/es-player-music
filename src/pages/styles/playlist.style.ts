@@ -22,6 +22,8 @@ export const PlayListContainer = styled.section`
   }
   .playlists {
     padding-top: 1em;
+    display: flex;
+    gap: 0.8em;
     li {
       display: flex;
       align-items: center;

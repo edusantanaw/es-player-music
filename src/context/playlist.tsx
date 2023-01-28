@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { IPlatList, IPlayListContext } from "../types/global";
+import { songsList } from "../utils/songsList";
 
 export const PlayListContext = createContext({} as IPlayListContext);
 
@@ -24,33 +25,51 @@ export const PlayListProvider = ({ children }: { children: ReactNode }) => {
 
   const createPlayList = (name: string) => {
     const playList = makePlayList();
-    if (playList) {
-      playList.push({ id: playList.length, name });
-      makeStorage(playList);
+    const newPlaylist = { id: playList ? playList.length : 0, name };
+    setPlayList((current) =>
+      current ? [...current, newPlaylist] : [newPlaylist]
+    );
+    if (!playList) {
+      makeStorage([{ id: 0, name }]);
       return;
     }
-    makeStorage([{ id: 1, name }]);
+    playList.push(newPlaylist);
+    makeStorage(playList);
   };
 
-  const loadPlayListSongs = (id: number) => {
-    const playList = localStorage.getItem("@App:songByPlayList:" + id);
+  const loadSongs = (name: string) => {
+    const playList = localStorage.getItem("@App:playlist" + name);
+    console.log(playList);
     if (playList) {
       return JSON.parse(playList) as string[] | null;
     }
+    return null;
   };
 
-  const updatePlayList = (songId: string, playListId: number) => {
-    let playList = loadPlayListSongs(playListId);
+  const loadPlayListSongs = (name: string) => {
+    const songsNames = loadSongs(name);
+    console.log(songsNames);
+    if (songsNames) {
+      const playListSongs = songsList.filter((songs) =>
+        songsNames.includes(songs.name)
+      );
+      return playListSongs;
+    }
+    return null;
+  };
+
+  const updatePlayList = (songId: string, name: string) => {
+    let playList = loadSongs(name);
     playList ? playList.push(songId) : (playList = [songId]);
     localStorage.setItem(
-      "@App:songByPlayList" + playListId,
+      `@App:songByPlayList${name}`,
       JSON.stringify(playList)
     );
   };
 
   return (
     <PlayListContext.Provider
-      value={{ createPlayList, playLists, updatePlayList }}
+      value={{ createPlayList, playLists, updatePlayList, loadPlayListSongs }}
     >
       {children}
     </PlayListContext.Provider>

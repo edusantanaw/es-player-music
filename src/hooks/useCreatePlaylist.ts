@@ -10,6 +10,14 @@ export const useCreatePlayList = ({ nameRef }: props) => {
   const [selectedSong, setSelectedSong] = useState<songs[]>([]);
   const { createPlayList } = usePlayList();
 
+  const makeStorage = (songs: songs[], playList: string) => {
+    const songsNames = songs.map((song) => song.name);
+    localStorage.setItem(
+      "@App:playlist" + playList,
+      JSON.stringify(songsNames)
+    );
+  };
+
   const handleCreatePlayList = () => {
     if (nameRef.current) {
       const name = nameRef.current.value;
@@ -27,14 +35,6 @@ export const useCreatePlayList = ({ nameRef }: props) => {
 
   const addSelectedSong = (song: songs) => {
     setSelectedSong((songs) => [...songs, song]);
-  };
-
-  const makeStorage = (songs: songs[], playList: string) => {
-    const songsNames = songs.map((song) => song.name);
-    localStorage.setItem(
-      "@App:playlist" + playList,
-      JSON.stringify(songsNames)
-    );
   };
 
   const handleSelectedSong = (song: songs) => {

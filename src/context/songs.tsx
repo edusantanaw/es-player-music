@@ -72,6 +72,10 @@ export const SongProvider = ({ children }: providerProps) => {
       : addLike(id);
   };
 
+  const handleUpdateCurrentList = (list: { name: string; songs: songs[] }) => {
+    setCurrentLista((current) => list);
+  };
+
   return (
     <SongContext.Provider
       value={{
@@ -83,6 +87,7 @@ export const SongProvider = ({ children }: providerProps) => {
         handleCurrentSong,
         currentLista,
         handleLike,
+        handleUpdateCurrentList
       }}
     >
       {children}

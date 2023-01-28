@@ -16,7 +16,7 @@ const Song = ({ song }: { song: songs }) => {
     }
   }, []);
 
-  const updateLike = (name: string) => {
+  const updateLike = () => {
     liked ? setLiked(false) : setLiked(true);
     handleLike(song.name);
   };
@@ -35,7 +35,7 @@ const Song = ({ song }: { song: songs }) => {
       </div>
       <FiHeart
         id={liked ? "liked" : ""}
-        onClick={() => updateLike(song.name)}
+        onClick={() => updateLike()}
       />
     </li>
   );

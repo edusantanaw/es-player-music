@@ -25,6 +25,8 @@ export const NewPlaylistModal = styled.div`
     padding: 2em;
     margin-top: 4em;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
     img {
       width: 3em;
     }
@@ -76,5 +78,20 @@ export const NewPlaylistModal = styled.div`
 
   .selected {
     background-color: #000;
+  }
+
+  #create_button {
+    align-self: center;
+    width: 13em;
+    height: 3em;
+    font-size: 1.05em;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 2em;
+    color: #fff;
+    background-color: blueviolet;
+    cursor: pointer;
   }
 `;
