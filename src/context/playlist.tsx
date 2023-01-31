@@ -5,7 +5,7 @@ import { songsList } from "../utils/songsList";
 export const PlayListContext = createContext({} as IPlayListContext);
 
 export const PlayListProvider = ({ children }: { children: ReactNode }) => {
-  const [playLists, setPlayList] = useState<IPlatList[] | null>(null);
+  const [playlists, setPlayList] = useState<IPlatList[] | null>(null);
 
   useEffect(() => {
     const list = makePlayList();
@@ -23,14 +23,14 @@ export const PlayListProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("@App:playlist", JSON.stringify(data));
   };
 
-  const createPlayList = (name: string) => {
+  const createPlayList = ({ name, image }: { name: string; image: string }) => {
     const playList = makePlayList();
-    const newPlaylist = { id: playList ? playList.length : 0, name };
+    const newPlaylist = { id: playList ? playList.length : 0, name, image };
     setPlayList((current) =>
       current ? [...current, newPlaylist] : [newPlaylist]
     );
     if (!playList) {
-      makeStorage([{ id: 0, name }]);
+      makeStorage([newPlaylist]);
       return;
     }
     playList.push(newPlaylist);
@@ -39,7 +39,6 @@ export const PlayListProvider = ({ children }: { children: ReactNode }) => {
 
   const loadSongs = (name: string) => {
     const playList = localStorage.getItem("@App:playlist" + name);
-    console.log(playList);
     if (playList) {
       return JSON.parse(playList) as string[] | null;
     }
@@ -48,7 +47,6 @@ export const PlayListProvider = ({ children }: { children: ReactNode }) => {
 
   const loadPlayListSongs = (name: string) => {
     const songsNames = loadSongs(name);
-    console.log(songsNames);
     if (songsNames) {
       const playListSongs = songsList.filter((songs) =>
         songsNames.includes(songs.name)
@@ -69,7 +67,7 @@ export const PlayListProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <PlayListContext.Provider
-      value={{ createPlayList, playLists, updatePlayList, loadPlayListSongs }}
+      value={{ createPlayList, playlists, updatePlayList, loadPlayListSongs }}
     >
       {children}
     </PlayListContext.Provider>

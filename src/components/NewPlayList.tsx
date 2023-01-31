@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { useCreatePlayList } from "../hooks/useCreatePlaylist";
-import { songs } from "../types/global";
 import { songsList } from "../utils/songsList";
 import SongNewPlaylist from "./SongNewPlaylist";
 import { NewPlaylistModal } from "./styles/newPlaylist.style";

@@ -6,13 +6,13 @@ export const Songs = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8em;
-
   li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.7em;
     cursor: pointer;
+    background-color: #120d31;
     border-radius: 10px;
     .infos {
       display: flex;
@@ -43,6 +43,6 @@ export const Songs = styled.ul`
     color: red;
   }
   #current {
-    background-color: #120d31
+    background-color: red;
   }
 `;

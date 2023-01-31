@@ -21,7 +21,7 @@ export const useCreatePlayList = ({ nameRef }: props) => {
   const handleCreatePlayList = () => {
     if (nameRef.current) {
       const name = nameRef.current.value;
-      createPlayList(name);
+      createPlayList({ name, image: selectedSong[0].image });
       makeStorage(selectedSong, name);
     }
   };
@@ -30,7 +30,7 @@ export const useCreatePlayList = ({ nameRef }: props) => {
     const songIndex = selectedSong.indexOf(song);
     const currentSelectedSongs = selectedSong;
     currentSelectedSongs.splice(songIndex, 1);
-    setSelectedSong((current) => [...currentSelectedSongs]);
+    setSelectedSong(() => [...currentSelectedSongs]);
   };
 
   const addSelectedSong = (song: songs) => {

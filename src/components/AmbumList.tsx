@@ -1,23 +1,26 @@
 import { Link } from "react-router-dom";
+import { usePlayList } from "../hooks/usePlayList";
 import { Title } from "../styles/global";
-import { albumList } from "../utils/albumList";
 import { AlbumlistContainer } from "./styles/albumlist.style";
 
 const Albums = () => {
+
+  const {playlists} = usePlayList()
+
   return (
     <AlbumlistContainer>
       <div className="head">
-        <Title>Albums</Title>
-        <Link to="albums">Veja todos</Link>
+        <Title>Playlist</Title>
+        <Link to="playlist">Veja todos</Link>
       </div>
       <ul>
-        {albumList.map((album, key) => {
-          if (key > 3) return;
+        {playlists && playlists.map((playlist, key) => {
+          if (key > 2) return;
           return (
             <li key={key}>
-              <img src={album.image} alt={album.name} />
+              <img src={playlist.image} alt={playlist.name} />
               <div className="infos">
-                <span>{album.name}</span>
+                <span>{playlist.name}</span>
               </div>
             </li>
           );

@@ -15,7 +15,7 @@ const curtidas = {
 };
 
 const PlayList = () => {
-  const { playLists, loadPlayListSongs } = usePlayList();
+  const { playlists, loadPlayListSongs } = usePlayList();
   const [newPlayList, setNewPlayList] = useState(false);
   const [currentPlayList, setCurrentPlayList] = useState<{
     name: string;
@@ -28,7 +28,7 @@ const PlayList = () => {
 
   const handlePlatlist = (name: string) => {
     const songs = loadPlayListSongs(name);
-    console.log(songs)
+    console.log(songs);
     setCurrentPlayList({
       name: name,
       songs: songs,
@@ -46,13 +46,14 @@ const PlayList = () => {
           </button>
         </div>
         <ul className="playlists">
-          <li className="liked">
+          <li className="liked" onClick={() => setCurrentPlayList(curtidas)}>
             <BsFillSuitHeartFill /> <span>Curtidas</span>
           </li>
-          {playLists &&
-            playLists.map((playlist, key) => (
-              <li onClick={() => handlePlatlist(playlist.name)} key={key}>
-                {playlist.name}
+          {playlists &&
+            playlists.map((playlist, key) => (
+              <li className="playlist_item" onClick={() => handlePlatlist(playlist.name)} key={key}>
+                <img src={playlist.image} alt="playlist image" />
+                <span>{playlist.name}</span>
               </li>
             ))}
         </ul>

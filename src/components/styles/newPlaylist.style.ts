@@ -55,7 +55,7 @@ export const NewPlaylistModal = styled.div`
       width: 100%;
       display: flex;
       gap: 1em;
-      padding: 0.8em;
+      padding: 0.5em;
       cursor: pointer;
       border-radius: 6px;
       img {

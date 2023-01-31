@@ -3,7 +3,6 @@ import { MenuContainer } from "./menu.syles";
 import { Link } from "react-router-dom";
 import { TbPlaylist } from "react-icons/tb";
 import { BsFillMusicPlayerFill } from "react-icons/bs";
-import { RiAlbumFill } from "react-icons/ri";
 
 const Menu = () => {
   return (
@@ -19,11 +18,6 @@ const Menu = () => {
         <li>
           <Link to="/playlist">
             <TbPlaylist /> <span>Playlists</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/albums">
-            <RiAlbumFill /> <span>Albums</span>
           </Link>
         </li>
       </ul>

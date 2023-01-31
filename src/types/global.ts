@@ -22,11 +22,12 @@ export type songContext = {
 export type IPlatList = {
   id: number;
   name: string;
+  image: string;
 };
 
 export interface IPlayListContext {
-  createPlayList: (name: string) => void;
-  playLists: IPlatList[] | null;
+  createPlayList: (data: { name: string; image: string }) => void;
+  playlists: IPlatList[] | null;
   updatePlayList: (songId: string, name: string) => void;
   loadPlayListSongs: (name: string) => songs[] | null;
 }

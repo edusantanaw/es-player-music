@@ -16,7 +16,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/playlist" element={<PlayList />} />
-          <Route path="/albums" element={<Albums />} />
         </Routes>
       </Router>
     </Container>

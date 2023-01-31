@@ -5,7 +5,7 @@ export const CategoryContainer = styled.div`
   ul {
     padding-top: 1em;
     display: flex;
-    gap: 1em;
+    gap: 2em;
     overflow-x: hidden;
     li {
       display: flex;
@@ -16,6 +16,7 @@ export const CategoryContainer = styled.div`
       border-radius: 20px;
       height: 11.7em;
       cursor: pointer;
+      background-color: #120d31;
       img {
         width: 7.5em;
         height: 7.5em;
@@ -29,7 +30,7 @@ export const CategoryContainer = styled.div`
       }
     }
     #selected {
-      background-color: #120d31;
+      background-color: red;
     }
   }
 `;
