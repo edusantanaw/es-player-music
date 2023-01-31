@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const SongContainer = styled.div`
   display: flex;
-  padding: 0.5em 3em;
+  padding: 0.6em 3em;
   width: 100%;
   align-items: center;
   position: fixed;
   bottom: 0px;
   z-index: 10;
   gap: 0.6em;
-  border-radius: 30px 30px 0px 0px;
   background-color: #040114;
   color: #fff;
   img {
@@ -20,7 +19,7 @@ export const SongContainer = styled.div`
   }
 
   .content {
-    width: 50%;
+    width: 20%;
     display: flex;
     align-items: center;
     gap: 2em;

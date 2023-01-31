@@ -21,7 +21,7 @@ export const AlbumlistContainer = styled.div`
     li {
       position: relative;
       width: 48%;
-      height: 9em;
+      height: 11em;
       border-radius: 10px;
       img {
         width: 100%;

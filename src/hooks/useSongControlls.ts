@@ -9,6 +9,7 @@ export default function useSongControll({ audioRef }: props) {
   const [playing, setPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<string>("00:00");
   const { handleNext, handlePrev, currentSong } = useSong();
+  const [currentTimeBar, setCurrentTimeBar] = useState(0);
 
   const formatTime = (time: number) => {
     if (Number.isNaN(time)) {
@@ -27,8 +28,16 @@ export default function useSongControll({ audioRef }: props) {
     }
   }, [currentSong.id]);
 
+  const getBarTime = () => {
+    if (!audioRef.current) return 0;
+    const current = audioRef.current.currentTime * 100;
+    const duration = audioRef.current.duration;
+    return current / duration;
+  };
+
   const countTime = () => {
     if (audioRef.current) {
+      setCurrentTimeBar(getBarTime());
       let current = Number(audioRef.current.currentTime);
       const formatedTime = formatTime(current);
       setCurrentTime(formatedTime);
@@ -62,5 +71,6 @@ export default function useSongControll({ audioRef }: props) {
     currentSong,
     playing,
     getDuration,
+    currentTimeBar,
   };
 }

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { VscDebugStart } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
 
-import { ControllsContainer } from "./controll.style";
+import { BarTime, ControllsContainer } from "./controll.style";
 import { MdOutlineSkipNext, MdOutlineSkipPrevious } from "react-icons/md";
 import useSongControll from "../../hooks/useSongControlls";
 
@@ -16,12 +16,16 @@ export const Controlls = () => {
     handlePlay,
     handlePrev,
     playing,
-    getDuration
+    getDuration,
+    currentTimeBar,
   } = useSongControll({ audioRef });
 
-
+  console.log(currentTimeBar);
   return (
     <ControllsContainer>
+      <BarTime current={`${currentTimeBar}%`}>
+        <div />
+      </BarTime>
       <div className="time">
         <span>{currentTime}</span>
         <span> - {getDuration()}</span>
@@ -42,7 +46,7 @@ export const Controlls = () => {
         ref={audioRef}
         controls
         onEnded={() => handleNext(currentSong.id)}
-      ></audio>
+      />
     </ControllsContainer>
   );
 };

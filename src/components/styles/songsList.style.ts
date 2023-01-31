@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Songs = styled.ul`
   padding-top: 1em;
+  padding-bottom: 6em;
   width: 48%;
   display: flex;
   flex-direction: column;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ControllsContainer = styled.div`
-  width: 50%;
+  width: 90%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 2em;
   audio {
     display: none;
@@ -27,5 +27,18 @@ export const ControllsContainer = styled.div`
       cursor: pointer;
       border-radius: 50%;
     }
+  }
+`;
+
+export const BarTime = styled.div<{ current: string }>`
+  width: 50%;
+  background-color: #a0a0a0;
+  height: 0.13em;
+  border-radius: 5px;
+  div {
+    width: ${(props) => props.current};
+    height: 100%;
+    background-color: red;
+    transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 `;

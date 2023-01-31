@@ -4,7 +4,6 @@ import { Home } from "./pages/Home";
 import { Container, Global } from "./styles/global";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PlayList from "./pages/PlayList";
-import Albums from "./pages/Albums";
 
 function App() {
   return (
