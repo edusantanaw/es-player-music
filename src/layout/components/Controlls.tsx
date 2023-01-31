@@ -1,13 +1,17 @@
 import { useRef } from "react";
 import { VscDebugStart } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
-
 import { BarTime, ControllsContainer } from "./controll.style";
-import { MdOutlineSkipNext, MdOutlineSkipPrevious } from "react-icons/md";
+import {
+  MdOutlineSkipNext,
+  MdOutlineSkipPrevious,
+  MdVolumeDownAlt,
+} from "react-icons/md";
 import useSongControll from "../../hooks/useSongControlls";
 
 export const Controlls = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const volumeRef = useRef<HTMLInputElement | null>(null);
   const {
     countTime,
     currentSong,
@@ -20,7 +24,13 @@ export const Controlls = () => {
     currentTimeBar,
   } = useSongControll({ audioRef });
 
-  console.log(currentTimeBar);
+  const handleVolume = () => {
+    if (volumeRef.current && audioRef.current) {
+      const volume = Number(volumeRef.current.value) / 100;
+      audioRef.current.volume = volume;
+    }
+  };
+
   return (
     <ControllsContainer>
       <BarTime current={`${currentTimeBar}%`}>
@@ -47,6 +57,15 @@ export const Controlls = () => {
         controls
         onEnded={() => handleNext(currentSong.id)}
       />
+      <div className="volumn">
+        <MdVolumeDownAlt />
+        <input
+          id="volumn"
+          onChange={handleVolume}
+          type="range"
+          ref={volumeRef}
+        />
+      </div>
     </ControllsContainer>
   );
 };

@@ -28,6 +28,22 @@ export const ControllsContainer = styled.div`
       border-radius: 50%;
     }
   }
+
+  #volumn {
+    outline: none;
+    width: 100%;
+    height: 0.5em;
+    border-radius: 9px;
+    cursor: pointer;
+  }
+  .volumn {
+    display: flex;
+    align-items: center;
+
+    svg {
+      font-size: 1.6em;
+    }
+  }
 `;
 
 export const BarTime = styled.div<{ current: string }>`
