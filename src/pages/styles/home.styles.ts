@@ -7,10 +7,6 @@ export const HomeContainer = styled.section`
   background-color: #0d051b;
   color: #fff;
   gap: 1em;
+  display: flex;
 
-  .bottom{
-    display: flex;
-    gap: 2em;
-  }
-  
 `;

@@ -39,29 +39,44 @@ const PlayList = () => {
     <>
       {newPlayList && <NewPlayList handleClose={handleNewPlayList} />}
       <PlayListContainer>
-        <div className="head">
-          <Title>Playlists</Title>
-          <button onClick={handleNewPlayList}>
-            Nova playlist <AiOutlinePlus />
-          </button>
-        </div>
-        <ul className="playlists">
-          <li className="liked" onClick={() => setCurrentPlayList(curtidas)}>
-            <BsFillSuitHeartFill /> <span>Curtidas</span>
-          </li>
-          {playlists &&
-            playlists.map((playlist, key) => (
-              <li className="playlist_item" onClick={() => handlePlatlist(playlist.name)} key={key}>
-                <img src={playlist.image} alt="playlist image" />
-                <span>{playlist.name}</span>
-              </li>
-            ))}
-        </ul>
+        <div className="content">
         {currentPlayList.songs && (
-          <SongsList
-            list={{ name: currentPlayList.name, songs: currentPlayList.songs }}
-          />
-        )}
+              <SongsList
+                list={{
+                  name: currentPlayList.name,
+                  songs: currentPlayList.songs,
+                }}
+              />
+          )}
+          <div className="left">
+            <div className="head">
+              <Title>Playlists</Title>
+              <button onClick={handleNewPlayList}>
+                Nova playlist <AiOutlinePlus />
+              </button>
+            </div>
+            <ul className="playlists">
+              <li
+                className="liked"
+                onClick={() => setCurrentPlayList(curtidas)}
+              >
+                <BsFillSuitHeartFill /> <span>Curtidas</span>
+              </li>
+              {playlists &&
+                playlists.map((playlist, key) => (
+                  <li
+                    className="playlist_item"
+                    onClick={() => handlePlatlist(playlist.name)}
+                    key={key}
+                  >
+                    <img src={playlist.image} alt="playlist image" />
+                    <span>{playlist.name}</span>
+                  </li>
+                ))}
+            </ul>
+          </div>
+       
+        </div>
       </PlayListContainer>
     </>
   );

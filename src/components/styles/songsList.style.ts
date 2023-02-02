@@ -3,10 +3,17 @@ import styled from "styled-components";
 export const Songs = styled.ul`
   padding-top: 1em;
   padding-bottom: 6em;
-  width: 48%;
+  width: 50%;
+  height: 86vh;
   display: flex;
   flex-direction: column;
   gap: 0.8em;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    display: none;
+  }
+ 
   li {
     display: flex;
     align-items: center;
@@ -15,6 +22,7 @@ export const Songs = styled.ul`
     cursor: pointer;
     background-color: #120d31;
     border-radius: 10px;
+    margin-right: 1em;
     .infos {
       display: flex;
       gap: 2em;

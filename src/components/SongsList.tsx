@@ -14,6 +14,9 @@ const SongsList = ({ list }: props) => {
       {list.songs.map((songs, key) => (
         <Song song={songs} key={key} />
       ))}
+      {list.songs.map((songs, key) => (
+        <Song song={songs} key={key} />
+      ))}
     </Songs>
   );
 };

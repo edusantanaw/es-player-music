@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
 export const CategoryContainer = styled.div`
-  width: 100%;
+  width: 50%;
   ul {
     padding-top: 1em;
     display: flex;
-    gap: 2em;
+    gap: 1.5em;
     overflow-x: hidden;
+    flex-wrap: wrap;
     li {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0.8em;
+      padding: 1.4em;
       gap: 0.6em;
       border-radius: 20px;
-      height: 11.7em;
+      width: 30%;
+      height: 14em;
       cursor: pointer;
       background-color: #120d31;
       img {

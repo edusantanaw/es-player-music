@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MenuContainer = styled.div`
-  width: 20%;
+  width: 13%;
   height: 100vh;
   background-color: #120d31;
   padding: 2em;
@@ -16,7 +16,7 @@ export const MenuContainer = styled.div`
     padding-top: 0.7em;
     display: flex;
     flex-direction: column;
-    gap: 0.6em;
+    gap: 0.8em;
   }
   li {
     a {
@@ -25,10 +25,10 @@ export const MenuContainer = styled.div`
       gap: 0.9em;
     }
     svg{
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
     span {
-      font-size: 1em;
+      font-size: 1.2em;
       color: #fff;
     }
   }
