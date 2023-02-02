@@ -73,7 +73,7 @@ export const SongProvider = ({ children }: providerProps) => {
   };
 
   const handleUpdateCurrentList = (list: { name: string; songs: songs[] }) => {
-    setCurrentLista((current) => list);
+    setCurrentLista(() => list);
   };
 
   return (

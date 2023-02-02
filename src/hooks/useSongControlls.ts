@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSong } from "./useSong";
 
 interface props {
@@ -19,14 +19,6 @@ export default function useSongControll({ audioRef }: props) {
     const seconds = Math.floor(time % 60);
     return `${("0" + minutes).slice(-2)}:${("0" + seconds).slice(-2)}`;
   };
-
-  useEffect(() => {
-    if (audioRef.current) {
-      if (playing) {
-        setPlaying(true);
-      }
-    }
-  }, [currentSong.id]);
 
   const getBarTime = () => {
     if (!audioRef.current) return 0;
@@ -72,5 +64,6 @@ export default function useSongControll({ audioRef }: props) {
     playing,
     getDuration,
     currentTimeBar,
+    setPlaying
   };
 }

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { VscDebugStart } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
 import { BarTime, ControllsContainer } from "./controll.style";
@@ -22,7 +22,15 @@ export const Controlls = () => {
     playing,
     getDuration,
     currentTimeBar,
+    setPlaying,
   } = useSongControll({ audioRef });
+
+  useEffect(() => {
+    if (playing) {
+      console.log(true);
+      if (audioRef.current) audioRef.current.play();
+    }
+  }, [playing, currentSong.id]);
 
   const handleVolume = () => {
     if (volumeRef.current && audioRef.current) {
@@ -30,6 +38,15 @@ export const Controlls = () => {
       audioRef.current.volume = volume;
     }
   };
+
+  function nextSong(id: string) {
+    handleNext(id);
+    setPlaying(true);
+  }
+  function prevSong(id: string) {
+    handlePrev(id);
+    setPlaying(true);
+  }
 
   return (
     <ControllsContainer>
@@ -47,7 +64,7 @@ export const Controlls = () => {
         ) : (
           <AiOutlinePause onClick={handlePlay} />
         )}
-        <MdOutlineSkipNext onClick={() => handleNext(currentSong.id)} />
+        <MdOutlineSkipNext onClick={() => nextSong(currentSong.id)} />
       </div>
       <audio
         src={currentSong.source}
@@ -55,7 +72,7 @@ export const Controlls = () => {
         onTimeUpdate={countTime}
         ref={audioRef}
         controls
-        onEnded={() => handleNext(currentSong.id)}
+        onEnded={() => prevSong(currentSong.id)}
       />
       <div className="volumn">
         <MdVolumeDownAlt />
